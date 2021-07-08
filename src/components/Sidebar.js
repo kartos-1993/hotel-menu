@@ -35,48 +35,56 @@ function Sidebar(props, { defaultActive }) {
     <SidebarParent>
       {SidebarItems.map((item, index) => {
         return (
-          <Link to={item.route}>
+          <Link to={item.route} key = {item.route}>
             <SidebarItem key={item.name} active={index === activeIndex}>
               <p>{item.name || <Logo height="50px" width="100px" />}</p>
             </SidebarItem>
           </Link>
         );
-      })}
-
-      <div className="behind-the-scenes" />
+      })} 
     </SidebarParent>
   );
 }
+
 
 export default Sidebar;
 
 const SidebarParent = styled.div`
   overflow: auto;
-  overflow-y: hidden;
-  white-space: nowrap;  
-  align-items: center;
-  display: flex;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px #8080802e solid;
+    margin-bottom: 1rem;
+    height: 74px;
  
 
   a {
     text-decoration: none;
-    color: white;
+    color: black;
   }
 `;
 
 const SidebarItem = styled.div`
-  flex: 1 0 10%;
-  margin: 20px 36px;
+  /* flex: 1 0 10%; */
+  margin: 10px 36px;
   transition: all 0.25s ease-in-out;
-  background: ${(props) => (props.active ? "#b15b00" : "")};
+  background: ${(props) => (props.active ? "#f24607" : "")};
   border-radius: 4px;
   font-family: inherit;
-  color: black;
+  color: ${(props) => (props.active ? "#fff" : "")};;
   font-weight: 600;
-
+padding:5px;
   a {
-    padding: 40px;
-    background: #e3b448;
+    /* padding: 40px; */
+    /* color: black; */
     font-weight: bold;
     text-decoration: none;
   }

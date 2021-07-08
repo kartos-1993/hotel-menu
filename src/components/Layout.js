@@ -5,12 +5,12 @@ import Sidebar from "./Sidebar";
 
 function Layout(props) {
   return (
-    <div>
+    // <div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <Sidebar history={props.history} />
         {props.children}
       </div>
-    </div>
+    // </div>
   );
 }
 
