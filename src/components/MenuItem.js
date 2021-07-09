@@ -2,13 +2,11 @@ import React from "react";
 import styled from "styled-components"
 
 
-
 const MenuItemParent = styled.div`
 
 h3{
-  text-align: center;
-  
-padding: 10px;
+  text-align: center;  
+  padding: 10px;
 
 }
 
@@ -26,7 +24,7 @@ const MenuItemContainer = styled.div`
 
 const IndividualItemContainer = styled.div`
   height: auto;
-  min-width: 170px;
+  flex: 0 0 200px;
   box-shadow: .1rem .1rem .5rem .1rem rgba(0,0,0, .1);
   margin: 10px;
   display: grid;
@@ -45,11 +43,11 @@ const IndividualItemContainer = styled.div`
 const ItemImage = styled.div`
 height: 100%;
 width: 100%;
-background-image: url('${props =>props.imageUrl}');
-background-size: contain;
-background-position: center;
-background-repeat: no-repeat;
-clip-path: circle(45%)
+ img{
+  height: 100%;
+width: 100%;
+object-fit: contain;
+ }
 `
 
 const ItemName = styled.div`
@@ -66,7 +64,9 @@ const MenuItems = (props) => {
       <MenuItemContainer>
         {items.map((item) => (
           <IndividualItemContainer  key = {item.name}>
-            <ItemImage imageUrl = {item.imageUrl}/>
+            <ItemImage>
+              <img src = {item.imageUrl} alt ={item.name}></img>
+             </ItemImage>
             <ItemName>{item.name}</ItemName>
             {item.price.map(item =>(
               <div key = {item.title} style = {{width: "100%", display:"flex", justifyContent: `${item.title ? "space-around": "center"}`,fontSize: ".8rem"}}>
@@ -76,8 +76,7 @@ const MenuItems = (props) => {
               <div >Rs. {item.price}</div>
               
               </div>)
-            )}
-      
+            )}      
           </IndividualItemContainer>
         ))}
       </MenuItemContainer>

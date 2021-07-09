@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 // import Nav from "./Nav";
 
 function Layout(props) {
+  console.log("Layout props: ",props)
   return (
     // <div>
       <div style={{ display: "flex", flexDirection: "column" }}>

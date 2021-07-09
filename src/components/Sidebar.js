@@ -11,6 +11,7 @@ function Sidebar(props, { defaultActive }) {
   const [activeIndex, setActiveIndex] = useState(
     lastActiveIndex || defaultActive
   );
+  const [scrollPosition, setScrollPosition] = useState()
 
   function changeActiveIndex(newIndex) {
     localStorage.setItem("lastActiveIndex", newIndex);
@@ -31,6 +32,8 @@ function Sidebar(props, { defaultActive }) {
     changeActiveIndex(activeItem);
   }, [location]);
 
+
+
   return (
     <SidebarParent>
       {SidebarItems.map((item, index) => {
@@ -45,7 +48,6 @@ function Sidebar(props, { defaultActive }) {
     </SidebarParent>
   );
 }
-
 
 export default Sidebar;
 
@@ -63,8 +65,7 @@ const SidebarParent = styled.div`
     display: flex;
     border-bottom: 1px #8080802e solid;
     margin-bottom: 1rem;
-    height: 74px;
- 
+    height: 74px; 
 
   a {
     text-decoration: none;
@@ -81,7 +82,7 @@ const SidebarItem = styled.div`
   font-family: inherit;
   color: ${(props) => (props.active ? "#fff" : "")};;
   font-weight: 600;
-padding:5px;
+  padding:15px;
   a {
     /* padding: 40px; */
     /* color: black; */
