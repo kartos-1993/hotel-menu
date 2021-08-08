@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 /.firebase
+/databse.rules.json
+/firebase.json/firebase.indexes.json/firestore.rules
 # testing
 /coverage
 
