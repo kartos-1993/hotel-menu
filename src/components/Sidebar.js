@@ -11,7 +11,7 @@ function Sidebar(props, { defaultActive }) {
   const [activeIndex, setActiveIndex] = useState(
     lastActiveIndex || defaultActive
   );
-  const [scrollPosition, setScrollPosition] = useState()
+  // const [scrollPosition, setScrollPosition] = useState()
 
   function changeActiveIndex(newIndex) {
     localStorage.setItem("lastActiveIndex", newIndex);
@@ -28,7 +28,9 @@ function Sidebar(props, { defaultActive }) {
   useEffect(() => {
     const activeItem = SidebarItems.findIndex(
       (item) => getPath(item.route) === getPath(location.pathname)
+      
     );
+    // window.scrollTo(150, 0)
     changeActiveIndex(activeItem);
   }, [location]);
 

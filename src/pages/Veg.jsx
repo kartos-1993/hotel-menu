@@ -228,14 +228,12 @@ const barbeque = {
   ]
 };
   return (
-    <>
-    
+    <>    
     <MenuItems items={cold_drinks} />
     <MenuItems items={beer} />
     <MenuItems items={hard_drinks} />
     <MenuItems items={barbeque}/>
-   
-  </>
+     </>
   );
 }
 
