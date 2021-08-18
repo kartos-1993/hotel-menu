@@ -7,7 +7,7 @@ function Layout(props) {
   
   return (
     // <div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", flexDirection: "column", maxWidth:"768px" }}>
         <Sidebar history={props.history} />
         {props.children}
       </div>

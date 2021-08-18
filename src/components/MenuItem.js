@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 
 const MenuItemParent = styled.div`
+padding: 10px;
 
 h3{
   text-align: center;  
@@ -12,15 +13,27 @@ h3{
 
 `
 const MenuItemContainer = styled.div`
-  display: flex;
+  
   /* overflow: auto;
   overflow-Y: hidden;
   overflow-X: auto; */
-  white-space: nowrap;
-  scroll-behavior: smooth;
+  /* white-space: nowrap; */
+  /* scroll-behavior: smooth; */
+
+ 
   
-  margin: 10px 0;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  
+
+
+
+  
+  
+  
+
+  
 `
 
 const IndividualItemContainer = styled.div`
