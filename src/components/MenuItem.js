@@ -4,72 +4,65 @@ import styled from "styled-components"
 
 const MenuItemParent = styled.div`
 padding: 10px;
-
+width:100%;
+&:last-child{
+  margin-bottom: 42px;
+}
 h3{
   text-align: center;  
   padding: 10px;
-
 }
-
 `
-const MenuItemContainer = styled.div`
-  
-  /* overflow: auto;
-  overflow-Y: hidden;
-  overflow-X: auto; */
-  /* white-space: nowrap; */
-  /* scroll-behavior: smooth; */
-
- 
-  
+const MenuItemContainer = styled.div`  
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 200px);
+  justify-content: center;
   gap: 10px;
   
-
-
-
-  
-  
-  
-
-  
-`
+    `
 
 const IndividualItemContainer = styled.div`
   height: auto;
   flex: 0 0 150px;
   box-shadow: .1rem .1rem .5rem .1rem rgba(0,0,0, .1);
   margin: 10px;
-  display: grid;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  padding: .7rem;
-  border-radius: 10px;
-  grid-template-rows:  150px 20px 20px;
-  grid-template-columns: auto;
- 
-  grid-auto-rows: 20px;
-  grid-auto-flow: row dense;
+  display: grid;  
+  border-radius: 5px;
+  grid-template-rows:  150px 30px 20px;  
   justify-items: center;
+  background: white;
+  
 `
-
 
 
 const ItemImage = styled.div`
-height: 100%;
-width: 100%;
- img{
-  height: 100%;
-width: 100%;
-object-fit: contain;
+ 
+  img{
+    height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-top: 10px;
  }
+
+ figure{
+   height: 100%;
+   width:100%;
+   overflow: hidden;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+ }
+
+
 `
 
 const ItemName = styled.div`
-font-size:.8rem;
-font-weight:600;
-`
+display: flex;
+align-items: center;
+  font-size:.8rem;
+  font-weight:600;
+  text-transform: uppercase;
+  padding:5px`
+
 
 
 const MenuItems = (props) => {
@@ -80,16 +73,18 @@ const MenuItems = (props) => {
       <MenuItemContainer>
         {items.map((item) => (
           <IndividualItemContainer  key = {item.name}>
-            <ItemImage>
+            <ItemImage>    
+            <figure>       
               <img src = {item.imageUrl} alt ={item.name}></img>
+              </figure> 
              </ItemImage>
             <ItemName>{item.name}</ItemName>
             {item.price.map(item =>(
-              <div key = {item.title} style = {{width: "100%", display:"flex", justifyContent: `${item.title ? "space-around": "center"}`,fontSize: ".8rem"}}>
-              <div>
-              {item.title}
-              </div>
-              <div >Rs. {item.price}</div>
+              <div key = {item.title} style = {{padding: "5px",width:"70%", display:"flex",alignItems:"center" ,justifyContent: `${item.title ? "space-evenly": "center"}`,fontSize: ".8rem"}}>
+              
+             <div>{item.title}</div> 
+              
+              <div>Rs. {item.price}</div>
               
               </div>)
             )}      

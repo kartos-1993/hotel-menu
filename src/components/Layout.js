@@ -1,18 +1,27 @@
 import React from "react";
+import styled from "styled-components"
 // import Routes from "../routes";
 import Sidebar from "./Sidebar";
 // import Nav from "./Nav";
 
 function Layout(props) {
   
-  return (
-    // <div>
-      <div style={{ display: "flex", flexDirection: "column", maxWidth:"768px" }}>
+  return (    
+      <LayoutWrapper>
         <Sidebar history={props.history} />
         {props.children}
-      </div>
-    // </div>
+      </LayoutWrapper>    
   );
 }
 
 export default Layout;
+
+const LayoutWrapper = styled.div`
+display: flex;
+flex-direction: column;
+background:#ebebeb;
+align-items: center;
+
+
+`
+

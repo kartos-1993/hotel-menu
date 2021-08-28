@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import Layout from "./components/Layout";
 
 const Beverage = lazy(() => import('./pages/Beverage'))
-const NonVeg = lazy(() => import('./pages/NonVeg'))
+const Snacks = lazy(() => import('./pages/Snacks'))
 const Veg = lazy(() => import('./pages/Veg'))
 const Dashboard = lazy(() => import('./pages/Dashboard'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -31,7 +31,7 @@ function Routes() {
                   <Route path="/sau"  component={Admin} />
                   <Route path="/dashboard" exact component={Dashboard} />                
                   <Route path="/beverage" component={Beverage} />                
-                  <Route path="/nonveg" component={NonVeg} />
+                  <Route path="/snacks" component={Snacks} />
                   <Route path="/veg" component={Veg} />
                   <Route component={NotFound} />               
                 </Switch>                      

@@ -1,8 +1,5 @@
 const SidebarItems = [
-  {
-    name: "home",
-    route: "/"
-  },
+  
 
   {
     name: "Beverages",
@@ -13,8 +10,8 @@ const SidebarItems = [
     route: "/veg"
   },
   {
-    name: "Non Veg",
-    route: "/nonveg"
+    name: "Snacks",
+    route: "/snacks"
   }
 ];
 

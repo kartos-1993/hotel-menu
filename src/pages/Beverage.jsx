@@ -12,8 +12,8 @@ function Beverage(props) {
 
     
 
-const cold_drinks = {
-    title: "cold drinks",
+const snacks = {
+    title: "snacks",
     category: "beverage",
     items: [{
             name: "coke",
@@ -284,7 +284,7 @@ const barbeque = {
   return (
     <>
     
-      <MenuItems items={cold_drinks} />
+      <MenuItems items={snacks} />
       <MenuItems items={beer} />
       <MenuItems items={hard_drinks} />
       <MenuItems items={barbeque}/>

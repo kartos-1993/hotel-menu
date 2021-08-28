@@ -29,8 +29,7 @@ function Sidebar(props, { defaultActive }) {
     const activeItem = SidebarItems.findIndex(
       (item) => getPath(item.route) === getPath(location.pathname)
       
-    );
-    // window.scrollTo(150, 0)
+    );    
     changeActiveIndex(activeItem);
   }, [location]);
 
@@ -54,30 +53,27 @@ function Sidebar(props, { defaultActive }) {
 export default Sidebar;
 
 const SidebarParent = styled.div`
-  overflow: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    border-bottom: 1px #8080802e solid;
-    margin-bottom: 1rem;
-    height: 74px; 
+    text-align: center;       
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;   
+    position: fixed;
+    bottom: 0;    
+    min-width: 350px;
+    max-width: 500px;
+    background: white;
+    padding:.2rem;
+    box-shadow: .1rem .1rem .5rem .1rem rgba(0,0,0, .1);
+    
 
   a {
     text-decoration: none;
+    font-size: .8rem;
     color: black;
   }
 `;
 
 const SidebarItem = styled.div`
-  /* flex: 1 0 10%; */
-  margin: 10px 36px;
+    
   transition: all 0.25s ease-in-out;
   background: ${(props) => (props.active ? "#f24607" : "")};
   border-radius: 4px;
@@ -86,8 +82,7 @@ const SidebarItem = styled.div`
   font-weight: 600;
   padding:15px;
   a {
-    /* padding: 40px; */
-    /* color: black; */
+    
     font-weight: bold;
     text-decoration: none;
   }
