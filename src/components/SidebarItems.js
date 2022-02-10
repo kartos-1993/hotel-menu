@@ -12,7 +12,12 @@ const SidebarItems = [
   {
     name: "Snacks",
     route: "/snacks"
-  }
+  },
+  {
+    name: "Momo",
+    route: "/momo"
+  },
+  
 ];
 
 export default SidebarItems;

@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import Logo from "../asset/logo";
 
 function Sidebar(props, { defaultActive }) {
+  console.log("Sidebar props",props)
   const location = props.history.location;
   const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
   const lastActiveIndex = Number(lastActiveIndexString);
   const [activeIndex, setActiveIndex] = useState(
     lastActiveIndex || defaultActive
   );
-  // const [scrollPosition, setScrollPosition] = useState()
 
   function changeActiveIndex(newIndex) {
     localStorage.setItem("lastActiveIndex", newIndex);
@@ -55,11 +55,10 @@ export default Sidebar;
 const SidebarParent = styled.div`
     text-align: center;       
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;   
+    grid-template-columns: 1fr 1fr 1fr 1fr;   
     position: fixed;
     bottom: 0;    
-    min-width: 350px;
-    max-width: 500px;
+    width:100%;
     background: white;
     padding:.2rem;
     box-shadow: .1rem .1rem .5rem .1rem rgba(0,0,0, .1);

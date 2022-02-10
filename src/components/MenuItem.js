@@ -1,97 +1,106 @@
 import React from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 
-
-const MenuItemParent = styled.div`
-padding: 10px;
-width:100%;
-&:last-child{
-  margin-bottom: 42px;
-}
-h3{
-  text-align: center;  
-  padding: 10px;
-}
-`
-const MenuItemContainer = styled.div`  
-  display: grid;
-  grid-template-columns: repeat(2, 200px);
-  justify-content: center;
-  gap: 10px;
-  
-    `
-
-const IndividualItemContainer = styled.div`
-  height: auto;
-  flex: 0 0 150px;
-  box-shadow: .1rem .1rem .5rem .1rem rgba(0,0,0, .1);
-  margin: 10px;
-  display: grid;  
-  border-radius: 5px;
-  grid-template-rows:  150px 30px 20px;  
-  justify-items: center;
-  background: white;
-  
-`
-
-
-const ItemImage = styled.div`
- 
-  img{
-    height: 100%;
+const Wrapper = styled.div`
   width: 100%;
-  object-fit: contain;
-  border-top: 10px;
- }
+  margin: 20px auto;
+  text-align: center;
+  margin: 0 auto;
 
- figure{
-   height: 100%;
-   width:100%;
-   overflow: hidden;
-   border-top-left-radius: 5px;
-   border-top-right-radius: 5px;
- }
+  h3 {
+    font-size: 1.5rem;
+  }
+`;
 
+const CardsWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+const CardItem = styled.div`
+  width: 25%;
+  padding: 5px;
 
-`
+  @media (max-width: 528px) {
+    width: 50%;
+  }
+`;
 
-const ItemName = styled.div`
-display: flex;
-align-items: center;
-  font-size:.8rem;
-  font-weight:600;
-  text-transform: uppercase;
-  padding:5px`
+const CardInner = styled.div`
+  background: #fff;
+  border-radius: 5px;
+`;
+const CardTop = styled.div`
+  width: 100%;
 
+  border-radius: 5px;
+  /* min-height: 200px; */
 
+  img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-top: 10px;
+  }
+
+  figure {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+`;
+
+const CardBottom = styled.div`
+  margin-top: 10px;
+  h1 {
+    font-size: 1.2rem;
+  }
+`;
+
+const PriceTitle = styled.div`
+  padding: 5px 2px;
+  width: 80%;
+  display: flex;
+  justify-content: ${(props) =>
+    props.pricetitle ? "space-between" : "center"};
+  margin: 0 auto;
+  font-size: 0.8rem;
+`;
+
+const Price = styled.div`
+  font-size: 1rem;
+`;
 
 const MenuItems = (props) => {
   const { title, items } = props.items;
   return (
-    <MenuItemParent>
+    <Wrapper>
       <h3>{title}</h3>
-      <MenuItemContainer>
+      <CardsWrap>
         {items.map((item) => (
-          <IndividualItemContainer  key = {item.name}>
-            <ItemImage>    
-            <figure>       
-              <img src = {item.imageUrl} alt ={item.name}></img>
-              </figure> 
-             </ItemImage>
-            <ItemName>{item.name}</ItemName>
-            {item.price.map(item =>(
-              <div key = {item.title} style = {{padding: "5px",width:"70%", display:"flex",alignItems:"center" ,justifyContent: `${item.title ? "space-evenly": "center"}`,fontSize: ".8rem"}}>
-              
-             <div>{item.title}</div> 
-              
-              <div>Rs. {item.price}</div>
-              
-              </div>)
-            )}      
-          </IndividualItemContainer>
+          <CardItem key={item.name}>
+            <CardInner>
+              <CardTop>
+                <figure>
+                  <img src={item.imageUrl} alt={item.name}></img>
+                </figure>
+              </CardTop>
+              <CardBottom>
+                <h1>{item.name}</h1>
+                {item.price.map((item) => (
+                  <PriceTitle key={item.name} pricetitle={item.title}>
+                    <div>{item.title}</div>
+                    <Price>Rs. {item.price}</Price>
+                  </PriceTitle>
+                ))}
+              </CardBottom>
+            </CardInner>
+          </CardItem>
         ))}
-      </MenuItemContainer>
-    </MenuItemParent>
+      </CardsWrap>
+    </Wrapper>
   );
 };
 
